@@ -12,6 +12,10 @@ export const env = createEnv({
     BETTER_AUTH_URL: z.string().url(),
     POLAR_ACCESS_TOKEN: z.string(),
     POLAR_WEBHOOK_SECRET: z.string(),
+
+    MODAL_API_URL: z.string().url(),
+    MODAL_API_KEY: z.string(),
+    MODAL_API_SECRET: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -38,6 +42,9 @@ export const env = createEnv({
     POLAR_ACCESS_TOKEN: process.env.POLAR_ACCESS_TOKEN,
     POLAR_WEBHOOK_SECRET: process.env.POLAR_WEBHOOK_SECRET,
 
+    MODAL_API_URL: process.env.MODAL_API_URL,
+    MODAL_API_KEY: process.env.MODAL_API_KEY,
+    MODAL_API_SECRET: process.env.MODAL_API_SECRET,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

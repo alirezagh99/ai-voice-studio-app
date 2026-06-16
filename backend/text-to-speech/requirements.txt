@@ -1,0 +1,8 @@
+pydantic
+fastapi
+requests
+modal
+chatterbox-tts
+torch
+torchaudio
+numpy>=1.24,<2.0
