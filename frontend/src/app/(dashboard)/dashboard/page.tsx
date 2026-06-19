@@ -17,6 +17,8 @@ import { getUserAudioProjects } from "~/actions/tts";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useAuth, useAuthenticate } from "@better-auth-ui/react";
+import { Spinner } from "~/components/ui/spinner";
 
 interface AudioProject {
   id: string;
@@ -50,6 +52,9 @@ export default function Dashboard() {
     createdAt?: string | Date;
   } | null>(null);
   const router = useRouter();
+
+  const { authClient } = useAuth();
+  const { data: session } = useAuthenticate(authClient);
 
   useEffect(() => {
     const initializeDashboard = async () => {
@@ -99,6 +104,14 @@ export default function Dashboard() {
             Loading your dashboard...
           </p>
         </div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="my-auto flex justify-center">
+        <Spinner color="current" />
       </div>
     );
   }
